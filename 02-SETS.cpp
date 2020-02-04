@@ -1,6 +1,43 @@
 #include<iostream>
 using namespace std;
-
+void printarr(int a[],int b[],int m,int n)
+{
+	int i,j,temp;
+	for (i=0;i<m;i++) 
+    {
+		for (j=i+1;j<m;j++)
+        {
+			if (a[i]>a[j])
+			{
+				temp=a[i];
+				a[i]=a[j];
+				a[j]=temp;
+			}
+		}
+	}
+	for (i=0;i<n;i++) 
+    {
+		for (j=i+1;j<n;j++)
+        {
+			if (b[i]>b[j])
+			{
+				temp=b[i];
+				b[i]=b[j];
+				b[j]=temp;
+			}
+		}
+	}
+	cout << "\n\nSet A : ";
+	for(i=0;i<m;i++)
+	{
+		cout << a[i] << " ";
+	}
+	cout << "\nSet B : ";
+	for(i=0;i<n;i++)
+	{
+		cout << b[i] << " ";
+	}
+}
 void printUnion(int a[],int b[],int m, int n)
 {
 	int i,j,flag;
@@ -64,7 +101,7 @@ void printComplement(int a[], int b[], int m, int n)
 
 void choices()
 {
-	cout << "[A] Union" << endl;
+	cout << "\n[A] Union" << endl;
 	cout << "[B] Intersection" << endl;
 	cout << "[C] Complement" << endl;
 	cout << "[D] Exit" << endl;
@@ -89,6 +126,8 @@ int main()
 		cin >> set2[i];
 	}
 	ch:
+	system("cls");
+	printarr(set1,set2,size1,size2);
 	choices();
 	cout << "\nEnter choice : ";
 	cin >> choice;
